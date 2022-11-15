@@ -61,6 +61,18 @@
                 </div>
             </div>
             <div class="row">
+            <div class="col">
+                    <div class="mb-3 row">
+                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Almacenamiento:</label>
+                        <div class="col-lg-8 col-md-6 col-sm-12">
+                            <select name="storage" class="form-control">
+                                <option value="">Selecionar</option>
+                                <option value="gcp">GCP bucket</option>
+                                <option value="local">Local storage</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div class="col">
                     <div class="mb-3 row">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image:</label>

@@ -33,7 +33,8 @@ class AdminProductController extends Controller
         $newProduct->setImage("food.png");
         $newProduct->save();
         $imageName = $newProduct->getId().".".$request->file('image')->extension();
-        $storeInterface = app(ImageStorage::class); 
+        $storage = $request->get('storage');
+        $storeInterface = app(ImageStorage::class, ['storage' => $storage]); 
         $storeInterface->store($request, $imageName);
         $newProduct->setImage($imageName);
         $newProduct->save();
