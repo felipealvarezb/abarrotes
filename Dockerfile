@@ -11,7 +11,10 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
-
+COPY ./.env.example ./.env
+RUN composer require barryvdh/laravel-dompdf
+RUN composer require google/cloud-storage
+RUN php artisan storage:link
 RUN php artisan key:generate
 RUN php artisan migrate
 RUN chmod -R 777 storage
