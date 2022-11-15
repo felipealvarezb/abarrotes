@@ -2,7 +2,7 @@
 @section('title', $viewData["title"])
 @section('content')
 <div class="card mb-4">
-    <div class="card-header"> 
+    <div class="card-header">
         Create Products
     </div>
     <div class="card-body">
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="row">
-            <div class="col">
+                <div class="col">
                     <div class="mb-3 row">
                         <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Almacenamiento:</label>
                         <div class="col-lg-8 col-md-6 col-sm-12">
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col"> 
+                <div class="col">
                     &nbsp;
                 </div>
             </div>
@@ -92,7 +92,7 @@
 
 
 <div class="card">
-    <div class="card-header"> 
+    <div class="card-header">
         Manage Products
     </div>
     <div class="card-body">
@@ -117,15 +117,16 @@
                         </a>
                     </td>
                     <td>
-                        <form action="{{ route('admin.product.delete', $product->getId())}}" method="POST"> 
+                        <form action="{{ route('admin.product.delete', $product->getId())}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger"> <i class="bi-trash"></i>
-                            </button> 
+                            </button>
                         </form>
                     </td>
                     <td>
-                        <a class="btn btn-primary" href="{{route('admin.historyProduct.index', ['id'=> $product->getId()])}}">
+                        <a class="btn btn-primary"
+                            href="{{route('admin.historyProduct.index', ['id'=> $product->getId()])}}">
                             <i class="bi bi-clipboard"></i>
                         </a>
                     </td>

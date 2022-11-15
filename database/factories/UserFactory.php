@@ -20,6 +20,12 @@ class UserFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->safeEmail(),
+            'city' => fake()->city(),
+            'address' => fake()->address(),
+            'phone' => fake()->phoneNumber(),
+            'document' => '1000748121',
+            'role' => 'admin',
+            'balance' => fake()->numberBetween($min = 1000, $max = 5000),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
