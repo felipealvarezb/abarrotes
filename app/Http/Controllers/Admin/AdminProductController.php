@@ -7,6 +7,7 @@ use App\Models\ProductHistory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Interfaces\ImageStorage;
 
 class AdminProductController extends Controller
 {
@@ -31,16 +32,13 @@ class AdminProductController extends Controller
         $newProduct->setPrice($request->input('price'));
         $newProduct->setImage("food.png");
         $newProduct->save();
+        $imageName = $newProduct->getId().".".$request->file('image')->extension();
+        $storeInterface = app(ImageStorage::class); 
+        $storeInterface->store($request, $imageName);
+        $newProduct->setImage($imageName);
+        $newProduct->save();
 
-        if ($request->hasFile('image')) {
-            $imageName = $newProduct->getId().".".$request->file('image')->extension();
-            Storage::disk('public')->put(
-                $imageName,
-                file_get_contents($request->file('image')->getRealPath())
-            );
-            $newProduct->setImage($imageName);
-            $newProduct->save();
-        }
+        
 
         return back();
     }
@@ -79,15 +77,10 @@ class AdminProductController extends Controller
 
         $product->setPrice($request->input('price'));
 
-        if ($request->hasFile('image')) {
-            $imageName = $product->getId().".".$request->file('image')->extension();
-            Storage::disk('public')->put(
-                $imageName,
-                file_get_contents($request->file('image')->getRealPath())
-            );
-
-            $product->setImage($imageName);
-        }
+        $imageName = $product->getId().".".$request->file('image')->extension();
+        $storeInterface = app(ImageStorage::class); 
+        $storeInterface->store($request, $imageName);
+        $product->setImage($imageName);
 
         $product->save();
         return redirect()->route('admin.product.index');
