@@ -11,7 +11,6 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
-COPY ./.env.example ./.env
 RUN composer require barryvdh/laravel-dompdf
 RUN composer require google/cloud-storage
 RUN php artisan storage:link
