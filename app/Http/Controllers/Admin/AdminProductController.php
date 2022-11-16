@@ -83,8 +83,8 @@ class AdminProductController extends Controller
         $storeInterface = app(ImageStorage::class); 
         $storeInterface->store($request, $imageName);
         $product->setImage($imageName);
-
         $product->save();
+        
         return redirect()->route('admin.product.index');
     }
 }
