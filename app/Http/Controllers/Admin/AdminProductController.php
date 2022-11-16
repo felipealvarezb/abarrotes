@@ -81,7 +81,7 @@ class AdminProductController extends Controller
 
         $imageName = $product->getId().".".$request->file('image')->extension();
         $storage = $request->get('storage');
-        $storeInterface = app(ImageStorage::class); 
+        $storeInterface = app(ImageStorage::class, ['storage' => $storage]);  
         $storeInterface->store($request, $imageName);
         $product->setImage($imageName);
         $product->save();
