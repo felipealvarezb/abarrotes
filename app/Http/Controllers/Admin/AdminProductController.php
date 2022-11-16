@@ -68,7 +68,8 @@ class AdminProductController extends Controller
         $product->setBrand($request->input('brand'));
         $product->setCategory($request->input('category'));
         $product->setWeight($request->input('weight'));
-        if ($product->getPrice() != $request->input('price')) {
+        if ($product->getPrice() != $request->input('price')) 
+        {
             $productHistory = new ProductHistory();
             $productHistory->setIdProduct($id);
             $productHistory->setPrice($request->input('price'));
