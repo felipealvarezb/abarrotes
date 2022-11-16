@@ -46,6 +46,9 @@
     "Purchase Status":"Purchase Status",
     "Purchase Complete":"Purchase Complete",
     "Order":"Order",
-    "language":"Language"
-
+    "language":"Language",
+    "Introduce the name of the city":"Introduce the name of the city",
+    "Global Weather Search":"Global Weather Search",
+    "City not found":"City not found. Try again!",
+    "Consult":"Consult"
 }

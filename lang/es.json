@@ -53,7 +53,9 @@
     "Purchase Complete":"Compra Completada",
     "Order":"Orden",
     "Product Name":"Nombre del Producto",
-    "language":"Lenguaje"
-
-
+    "language":"Lenguaje",
+    "Introduce the name of the city":"Introduce el nombre de la ciudad",
+    "Global Weather Search":"Búsqueda Global del Clima",
+    "City not found":"Ciudad no encontrada, intente de nuevo!",
+    "Consult":"Consultar"
 }
