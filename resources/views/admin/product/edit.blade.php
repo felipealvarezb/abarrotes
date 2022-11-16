@@ -6,11 +6,11 @@
     </div>
     <div class="card-body">
         @if($errors->any())
-            <ul class="alert alert-danger list-unstyled">
-                @foreach($errors->all() as $error) 
-                    <li>- {{ $error }}</li> 
-                @endforeach
-            </ul>
+        <ul class="alert alert-danger list-unstyled">
+            @foreach($errors->all() as $error)
+            <li>- {{ $error }}</li>
+            @endforeach
+        </ul>
         @endif
         <form method="POST" action="{{ route('admin.product.update', ['id'=> $viewData['product']->getId()]) }}"
             enctype="multipart/form-data">
@@ -21,7 +21,8 @@
                     <div class="mb-3 row">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Name:</label>
                         <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="name" value="{{ $viewData['product']->getName() }}" type="text" class="form-control">
+                            <input name="name" value="{{ $viewData['product']->getName() }}" type="text"
+                                class="form-control">
                         </div>
                     </div>
                 </div>
@@ -29,7 +30,8 @@
                     <div class="mb-3 row">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Brand:</label>
                         <div class="col-lg-10 col-md-6 col-sm-12">
-                            <input name="brand" value="{{ $viewData['product']->getBrand() }}" type="text" class="form-control">
+                            <input name="brand" value="{{ $viewData['product']->getBrand() }}" type="text"
+                                class="form-control">
                         </div>
                     </div>
                 </div>
@@ -39,7 +41,8 @@
                     <div class="mb-3 row">
                         <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Category:</label>
                         <div class="col-lg-8 col-md-6 col-sm-12">
-                            <input name="category" value="{{ $viewData['product']->getCategory() }}" type="text" class="form-control">
+                            <input name="category" value="{{ $viewData['product']->getCategory() }}" type="text"
+                                class="form-control">
                         </div>
                     </div>
                 </div>
@@ -47,7 +50,8 @@
                     <div class="mb-3 row">
                         <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Weight:</label>
                         <div class="col-lg-8 col-md-6 col-sm-12">
-                            <input name="weight" value="{{ $viewData['product']->getWeight() }}" type="text" class="form-control">
+                            <input name="weight" value="{{ $viewData['product']->getWeight() }}" type="text"
+                                class="form-control">
                         </div>
                     </div>
                 </div>
@@ -55,12 +59,25 @@
                     <div class="mb-3 row">
                         <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Price:</label>
                         <div class="col-lg-8 col-md-6 col-sm-12">
-                            <input name="price" value="{{ $viewData['product']->getPrice() }}" type="number" class="form-control">
+                            <input name="price" value="{{ $viewData['product']->getPrice() }}" type="number"
+                                class="form-control">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
+                <div class="col">
+                    <div class="mb-3 row">
+                        <label class="col-lg-4 col-md-6 col-sm-12 col-form-label">Almacenamiento:</label>
+                        <div class="col-lg-8 col-md-6 col-sm-12">
+                            <select name="storage" class="form-control">
+                                <option value="">Selecionar</option>
+                                <option value="gcp">GCP bucket</option>
+                                <option value="local">Local storage</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div class="col">
                     <div class="mb-3 row">
                         <label class="col-lg-2 col-md-6 col-sm-12 col-form-label">Image:</label>
@@ -69,12 +86,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="col"> 
+                <div class="col">
                     &nbsp;
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Edit</button>
         </form>
     </div>
-</div> 
+</div>
 @endsection
